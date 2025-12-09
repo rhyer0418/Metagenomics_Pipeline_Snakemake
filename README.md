@@ -1,1 +1,2 @@
 # Metagenomics_Pipeline_Snakemake
+metagenome-assembled genomes
