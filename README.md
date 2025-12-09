@@ -32,7 +32,7 @@ Example: If your server has 64 CPUs, set -j 60 to leave a small buffer. Snakemak
 
 ## Run in background (nohup)
 ```bash
-nohup snakemake --cores 65 --resources mem_mb=110000 --latency-wait 60 --keep-going &
+nohup snakemake --cores 65 --resources mem_mb=110000 --latency-wait 60 --keep-going --rerun-incomplete &
 ```
 
 --latency-wait 60: Waits 60s for files to appear (useful for network storage).
