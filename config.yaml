@@ -1,0 +1,35 @@
+# ========================
+# 1. Input / Output Paths
+# ========================
+
+# Directory containing raw sequencing data (must be fastq/fq, compressed or uncompressed)
+reads_dir: "/path/to/raw_data"
+
+# File suffix pattern for identifying R1 and R2
+# Example: sample_1.fastq.gz -> r1_suffix = "_1.fastq.gz"
+r1_suffix: "_1.fastq.gz"
+r2_suffix: "_2.fastq.gz"
+
+# Base directory for all results
+output_dir: "results_v1"
+
+# ========================
+# 2. Container & Databases
+# ========================
+
+# Path to the Singularity / Apptainer container
+container_path: "./metagenome_v1.sif"
+
+# Absolute path to host databases (must be mounted in the container)
+host_db_path: "/data/databases"
+
+# ========================
+# 3. Resource Allocation (Threads)
+# ========================
+
+threads:
+  assembly: 24   # Assembly is very memory-intensive, allocate enough threads
+  binning: 16    # Binning step
+  drep: 32       # Aggregation step; more cores = faster
+  checkm: 16
+  gtdbtk: 24
