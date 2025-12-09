@@ -14,6 +14,8 @@ Metagenomics_Pipeline_Snakemake/
     ├── SampleA_2.fastq.gz
     ├── SampleB_1.fastq.gz
     └── ...
+```
+
 ## 2. How to Run
 Step 1: Dry Run (Sanity Check)
 Always perform a dry run first to verify that Snakemake detects the correct number of samples.
