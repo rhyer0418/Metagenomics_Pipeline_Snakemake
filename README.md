@@ -2,6 +2,16 @@
 **Version:** v1  
 **Description:** Auto pipeline for metagenomics binning, refinement, taxonomy, and annotation.
 
+## Software
+| **Software**        | **Website**                                                  |
+| -------------------- | ------------------------------------------------------------ |
+| `metaWRAP(v1.3.2)`   | https://github.com/bxlab/metaWRAP                            |
+| `metaSPAdes (v4.2.0)`| https://github.com/ablab/spades                           |
+| `drep/`              | Dereplicated genome set & cluster info (`GenomeInformation.csv`) |
+| `checkm/`            | Quality assessment results (`bin_stats_ext.tsv`)             |
+| `gtdbtk/`            | Taxonomy classification (`gtdbtk.bac120.summary.tsv`)        |
+
+
 ## 1. Project Directory Structure
 Before running, organize your working directory as follows:
 ```text
