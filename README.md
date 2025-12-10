@@ -3,13 +3,20 @@
 **Description:** Auto pipeline for metagenomics binning, refinement, taxonomy, and annotation.
 
 ## Software
-| **Software**        | **Website**                                                  |
-| -------------------- | ------------------------------------------------------------ |
-| `metaWRAP(v1.3.2)`   | https://github.com/bxlab/metaWRAP                            |
-| `metaSPAdes (v4.2.0)`| https://github.com/ablab/spades                           |
-| `drep/`              | Dereplicated genome set & cluster info (`GenomeInformation.csv`) |
-| `checkm/`            | Quality assessment results (`bin_stats_ext.tsv`)             |
-| `gtdbtk/`            | Taxonomy classification (`gtdbtk.bac120.summary.tsv`)        |
+| **Software**        | **Website**                 |
+| --------------------         | -------------------------------------|
+| `metaWRAP(v1.3.2)`            | https://github.com/bxlab/metaWRAP   |
+| `metaSPAdes (v4.2.0)`         | https://github.com/ablab/spades  |
+| `MEGAHIT (v1.1.3) `           |https://github.com/voutcn/megahit|
+| `MaxBin2 (v2.2.7`             | https://github.com/assemblerflow/flowcraft/blob/master/docs/user/components/maxbin2.rst |
+| `metaBAT2 (v2.12.1)`          | https://bitbucket.org/berkeleylab/metabat/src/master/|
+| `CONCOCT (v1.1.0)`            |https://github.com/BinPro/CONCOCT|
+| `dRep (v3.6.2)`               | https://github.com/MrOlm/drep |
+| `GTDB-tk (v2.1.1)`            | http://gtdb.ecogenomic.org/ |
+| `Salmon (v1.10.3)`            | https://github.com/COMBINE-lab/salmon |
+| `PhyloPhlAn (v3.1.68)`        | https://github.com/biobakery/phylophlan|
+| `MicrobeAnnotator (v2.0.5)`   | https://github.com/cruizperez/MicrobeAnnotator |
+
 
 
 ## 1. Project Directory Structure
