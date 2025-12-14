@@ -95,14 +95,14 @@ results/
 │   ├── dereplicated_genomes/
 │   │   └── *.fa
 │   └── clean_bins/
-│       └── *.fa (重命名后的 bins)
+│       └── *.fa (rename bins)
 ├── gtdb/
 │   └── gtdbtk.bac120.summary.tsv
 ├── function/
 │   ├── bin_translated_genes/
 │   │   └── *.faa
 │   └── bin_annotations/
-│       └── *.txt 或目录结构
+│       └── *.txt 
 ├── microbeannotator_results/
 │   └── annotation_results.txt
 ├── humann/
