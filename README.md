@@ -25,11 +25,11 @@ Before running, organize your working directory as follows:
 Metagenomics_Pipeline_Snakemake/
 ├── config.yaml          # Configuration file (sample names, paths, parameters)
 ├── Snakefile            # Core workflow script
-├── metagenome_v1.sif     # The Singularity container
+##├── metagenome_v1.sif     # The Singularity container
 └── data/                 # Folder containing raw sequencing reads
-    ├── SampleA_1.fastq.gz
-    ├── SampleA_2.fastq.gz
-    ├── SampleB_1.fastq.gz
+    ├── SampleA_1.fq.gz
+    ├── SampleA_2.fq.gz
+    ├── SampleB_1.fq.gz
     └── ...
 ```
 
@@ -49,7 +49,7 @@ Example: If your server has 64 CPUs, set -j 60 to leave a small buffer. Snakemak
 
 ## Run in background (nohup)
 ```bash
-nohup snakemake --cores 65 --resources mem_mb=110000 --latency-wait 60 --keep-going --rerun-incomplete &
+nohup snakemake --cores 40 --resources mem_mb=110000 --latency-wait 60 --keep-going --rerun-incomplete &
 ```
 
 --latency-wait 60: Waits 60s for files to appear (useful for network storage).
@@ -57,10 +57,64 @@ nohup snakemake --cores 65 --resources mem_mb=110000 --latency-wait 60 --keep-go
 --keep-going: If one sample fails, continue processing the others.
 
 ## 3.Output Files
+results/
+├── QC/
+│   ├── sample1/
+│   │   ├── clean_1.fastq
+│   │   └── clean_2.fastq
+│   ├── sample2/
+│   │   ├── clean_1.fastq
+│   │   └── clean_2.fastq
+│   └── ...
+├── Assembly/
+│   ├── sample1/
+│   │   └── final_assembly.fasta
+│   ├── sample2/
+│   │   └── final_assembly.fasta
+│   └── ...
+├── Bins/
+│   ├── sample1/
+│   │   ├── metabat2_bins/
+│   │   ├── maxbin2_bins/
+│   │   └── concoct_bins/
+│   ├── sample2/
+│   │   ├── metabat2_bins/
+│   │   ├── maxbin2_bins/
+│   │   └── concoct_bins/
+│   └── ...
+├── bin_refinement/
+│   ├── sample1/
+│   │   └── metawrap_50_5_bins/
+│   ├── sample2/
+│   │   └── metawrap_50_5_bins/
+│   └── ...
+├── dRep/
+│   ├── data_tables/
+│   │   └── Wdb.csv
+│   ├── dereplicated_genomes/
+│   │   └── *.fa
+│   └── clean_bins/
+│       └── *.fa (重命名后的 bins)
+├── gtdb/
+│   └── gtdbtk.bac120.summary.tsv
+├── function/
+│   ├── bin_translated_genes/
+│   │   └── *.faa
+│   └── bin_annotations/
+│       └── *.txt 或目录结构
+├── microbeannotator_results/
+│   └── annotation_results.txt
+├── humann/
+│   ├── sample1_genefamilies.tsv
+│   ├── sample2_genefamilies.tsv
+│   └── ...
+└── Phylogeny/
+    └── phylophlan_output/
+        └── phylogenetic_tree_files
+        
 | **Directory**        | **Content**                                                  |
 | -------------------- | ------------------------------------------------------------ |
 | `assembly/{sample}/` | Final contigs (`final_assembly.fasta`)                       |
 | `binning/{sample}/`  | Refined bins (`metawrap_bins/`)                              |
-| `drep/`              | Dereplicated genome set & cluster info (`GenomeInformation.csv`) |
 | `checkm/`            | Quality assessment results (`bin_stats_ext.tsv`)             |
 | `gtdbtk/`            | Taxonomy classification (`gtdbtk.bac120.summary.tsv`)        |
