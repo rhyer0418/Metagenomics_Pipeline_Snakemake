@@ -1,35 +1,39 @@
-# ========================
-# 1. Input / Output Paths
-# ========================
+samples_dir: "$workdir/data"
+r1_suffix: "_1.fq.gz"
+r2_suffix: "_2.fq.gz"
 
-# Directory containing raw sequencing data (must be fastq/fq, compressed or uncompressed)
-reads_dir: "/path/to/raw_data"
+outdir: "results"
 
-# File suffix pattern for identifying R1 and R2
-# Example: sample_1.fastq.gz -> r1_suffix = "_1.fastq.gz"
-r1_suffix: "_1.fastq.gz"
-r2_suffix: "_2.fastq.gz"
+# ----------------------------
+# Conda activate 
+# ----------------------------
+envs:
+  metawrap: "$workdir/miniconda3/bin/activate metawrap-env"
+  drep: "$workdir/miniconda3/bin/activate drep"
+  gtdbtk: "$workdir/miniconda3/bin/activate gtdbtk_r207"
+  humann3: "$workdir/miniconda3/bin/activate humann3"
+  seqkit: "$workdir/miniconda3/bin/activate seqkit"
 
-# Base directory for all results
-output_dir: "results_v1"
-
-# ========================
-# 2. Container & Databases
-# ========================
-
-# Path to the Singularity / Apptainer container
-container_path: "./metagenome_v1.sif"
-
-# Absolute path to host databases (must be mounted in the container)
-host_db_path: "/data/databases"
-
-# ========================
-# 3. Resource Allocation (Threads)
-# ========================
+databases:
+  gtdbtk: "$workdir/db/gtdb_r207v2/gtdb_r207/release207_v2"
+  microbeannotator: "$workdir/db/MicrobeAnnotator_DB"
+  metaphlan: "$workdir/db/metaphlan4"
+  metaphlan_index: "mpa_vJun23_CHOCOPhlAnSGB_202403"
 
 threads:
-  assembly: 24   # Assembly is very memory-intensive, allocate enough threads
-  binning: 16    # Binning step
-  drep: 32       # Aggregation step; more cores = faster
-  checkm: 16
-  gtdbtk: 24
+  qc: 40
+  assembly: 16
+  binning: 40
+  refinement: 40
+  drep: 40
+  gtdbtk: 40
+  prokka: 15
+  microbeannotator: 10
+  humann: 40
+  phylophlan: 40
+
+
+mem: "100G"
+
+
+skip_bmtagger: true
