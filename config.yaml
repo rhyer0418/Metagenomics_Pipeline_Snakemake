@@ -21,16 +21,16 @@ databases:
   metaphlan_index: "mpa_vJun23_CHOCOPhlAnSGB_202403"
 
 threads:
-  qc: 40
+  qc: 8
   assembly: 16
-  binning: 40
-  refinement: 40
-  drep: 40
-  gtdbtk: 40
-  prokka: 15
-  microbeannotator: 10
-  humann: 40
-  phylophlan: 40
+  binning: 32
+  refinement: 16
+  drep: 24
+  gtdbtk: 24
+  prokka: 8
+  microbeannotator: 12
+  humann: 32
+  phylophlan: 16
 
 
 mem: "100G"
