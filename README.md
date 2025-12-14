@@ -57,6 +57,7 @@ nohup snakemake --cores 40 --resources mem_mb=110000 --latency-wait 60 --keep-go
 --keep-going: If one sample fails, continue processing the others.
 
 ## 3.Output Files
+```
 results/
 ├── QC/
 │   ├── sample1/
@@ -111,6 +112,7 @@ results/
 └── Phylogeny/
     └── phylophlan_output/
         └── phylogenetic_tree_files
+```
         
 | **Directory**        | **Content**                                                  |
 | -------------------- | ------------------------------------------------------------ |
