@@ -116,7 +116,7 @@ results/
         
 | **Directory**        | **Content**                                                  |
 | -------------------- | ------------------------------------------------------------ |
-| `assembly/{sample}/` | Final contigs (`final_assembly.fasta`)                       |
-| `binning/{sample}/`  | Refined bins (`metawrap_bins/`)                              |
+| `Assembly/{sample}/` | Final contigs (`final_assembly.fasta`)                       |
+| `Bins/{sample}/`  | Refined bins (`metawrap_bins/`)                              |
 | `checkm/`            | Quality assessment results (`bin_stats_ext.tsv`)             |
-| `gtdbtk/`            | Taxonomy classification (`gtdbtk.bac120.summary.tsv`)        |
+| `gtdb/`            | Taxonomy classification (`gtdbtk.bac120.summary.tsv`)        |
