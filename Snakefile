@@ -23,7 +23,7 @@ rule all:
         # Annotation results
         f"{OUT}/microbeannotator_results/annotation_results.txt",
         # HUMAnN3 results
-        expand(f"{OUT}/humann/{{sample}}_genefamilies.tsv", sample=SAMPLES),
+        expand(f"{OUT}/humann/{{sample}}_merged_genefamilies.tsv", sample=SAMPLES),
         # Phylophlan results
         f"{OUT}/Phylogeny/phylophlan_output"
 
