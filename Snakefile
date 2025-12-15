@@ -57,10 +57,10 @@ rule metawrap_qc:
 
         metawrap read_qc -1 {input.r1} -2 {input.r2} -t {threads} -o {params.outdir} {params.skip}
   
-        mv results/QC/{wildcards.sample}/{wildcards.sample}_1_val_1.fq \
+        mv results/QC/{wildcards.sample}/final_pure_reads_1.fq \
            results/QC/{wildcards.sample}/clean_1.fastq
 
-        mv results/QC/{wildcards.sample}/{wildcards.sample}_2_val_2.fq \
+        mv results/QC/{wildcards.sample}/final_pure_reads_2.fq \
            results/QC/{wildcards.sample}/clean_2.fastq
 
         end_time=$(date +%s)
