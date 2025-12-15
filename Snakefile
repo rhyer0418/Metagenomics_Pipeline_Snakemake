@@ -57,14 +57,11 @@ rule metawrap_qc:
 
         metawrap read_qc -1 {input.r1} -2 {input.r2} -t {threads} -o {params.outdir} {params.skip}
   
-        # Rename outputs (handle cases with/without host removal)
-        if [ -f "{params.outdir}/final_pure_reads_1.fastq" ]; then
-            mv "{params.outdir}/final_pure_reads_1.fastq" {output.c1}
-            mv "{params.outdir}/final_pure_reads_2.fastq" {output.c2}
-        else
-            mv "{params.outdir}/final_reads_1.fastq" {output.c1}
-            mv "{params.outdir}/final_reads_2.fastq" {output.c2}
-        fi
+        mv results/QC/{wildcards.sample}/{wildcards.sample}_1_val_1.fq \
+           results/QC/{wildcards.sample}/clean_1.fastq
+
+        mv results/QC/{wildcards.sample}/{wildcards.sample}_2_val_2.fq \
+           results/QC/{wildcards.sample}/clean_2.fastq
 
         end_time=$(date +%s)
         echo "[Time Log] QC for {wildcards.sample} FINISHED at $(date)"
