@@ -311,7 +311,10 @@ rule humann3:
     input:
         c1 = f"{OUT}/QC/{{sample}}/clean_1.fastq",
         c2 = f"{OUT}/QC/{{sample}}/clean_2.fastq"
-    output: f"{OUT}/humann/{{sample}}_genefamilies.tsv"
+    output: 
+        gene = f"{OUT}/humann/{{sample}}_merged_genefamilies.tsv",
+        path = f"{OUT}/humann/{{sample}}_merged_pathabundance.tsv",
+        cov  = f"{OUT}/humann/{{sample}}_merged_pathcoverage.tsv"
     params:
         outdir = f"{OUT}/humann",
         env = config["envs"]["humann3"],
