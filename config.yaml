@@ -1,6 +1,6 @@
 samples_dir: "$workdir/data"
-r1_suffix: "_1.fq.gz"
-r2_suffix: "_2.fq.gz"
+r1_suffix: "_1.fq"
+r2_suffix: "_2.fq"
 
 outdir: "results"
 
@@ -22,18 +22,18 @@ databases:
 
 threads:
   qc: 8
-  assembly: 16
+  assembly: 40
   binning: 32
-  refinement: 16
-  drep: 24
-  gtdbtk: 24
+  refinement: 32
+  drep: 60
+  gtdbtk: 48
   prokka: 8
   microbeannotator: 12
   humann: 32
-  phylophlan: 16
+  phylophlan: 40
 
 
-mem: "100G"
+mem_mb: 100000
 
 
 skip_bmtagger: true
