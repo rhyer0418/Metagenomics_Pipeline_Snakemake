@@ -124,8 +124,8 @@ results/
 
 
 ## Noted:
-Metawrap ( Python 2.7.15)
-Quast    (Python 3.9.23)
+Metawrap ( Python 2.7.15).
+Quast    (Python 3.9.23).
 
 When run metawrap assembly : Error: "No module named html...File ".../basic_stats.py", line 15, in <module> from quast_libs.circos import set_window_size"
 
