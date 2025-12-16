@@ -130,3 +130,7 @@ Quast    (Python 3.9.23)
 
 When run metawrap assembly : Error: "No module named html...File ".../basic_stats.py", line 15, in <module> from quast_libs.circos import set_window_size"
 
+**Solution: 
+
+Revise "Path/miniconda3/envs/metawrap-env/opt/quast-5.0.2/quast_libs/site_packages/jsontemplate/jsontemplate.py" file, change "import html" to "import cgi as html".
+
