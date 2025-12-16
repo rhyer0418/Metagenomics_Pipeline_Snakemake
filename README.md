@@ -6,6 +6,7 @@
 | **Software**        | **Website**                 |
 | --------------------         | -------------------------------------|
 | `metaWRAP(v1.3.2)`            | https://github.com/bxlab/metaWRAP   |
+| `QUAST(v5.0.2)`               | https://github.com/ablab/quast  |
 | `metaSPAdes (v4.2.0)`         | https://github.com/ablab/spades  |
 | `MEGAHIT (v1.1.3) `           |https://github.com/voutcn/megahit|
 | `MaxBin2 (v2.2.7`             | https://github.com/assemblerflow/flowcraft/blob/master/docs/user/components/maxbin2.rst |
@@ -120,3 +121,10 @@ results/
 | `Bins/{sample}/`  | Refined bins (`metawrap_bins/`)                              |
 | `checkm/`            | Quality assessment results (`bin_stats_ext.tsv`)             |
 | `gtdb/`            | Taxonomy classification (`gtdbtk.bac120.summary.tsv`)        |
+
+
+Noted:
+Metawrap ( Python 2.7.15)
+Quast    (Python 3.9.23)
+When run metawrap assembly : Error: "No module named html...File ".../basic_stats.py", line 15, in <module> from quast_libs.circos import set_window_size"
+
