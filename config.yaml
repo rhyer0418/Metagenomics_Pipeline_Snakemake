@@ -12,13 +12,16 @@ envs:
   drep: "$workdir/miniconda3/bin/activate drep"
   gtdbtk: "$workdir/miniconda3/bin/activate gtdbtk_r207"
   humann3: "$workdir/miniconda3/bin/activate humann3"
-  seqkit: "$workdir/miniconda3/bin/activate seqkit"
 
 databases:
   gtdbtk: "$workdir/db/gtdb_r207v2/gtdb_r207/release207_v2"
   microbeannotator: "$workdir/db/MicrobeAnnotator_DB"
   metaphlan: "$workdir/db/metaphlan4"
   metaphlan_index: "mpa_vJun23_CHOCOPhlAnSGB_202403"
+
+phylophlan:
+  config: "$workdir/supermatrix_aa.cfg"
+  db: "$workdir/Phylogeny/"
 
 threads:
   qc: 8
