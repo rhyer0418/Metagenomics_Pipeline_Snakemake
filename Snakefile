@@ -242,14 +242,10 @@ rule gtdbtk:
 rule rename_contigs:
     input: f"{OUT}/dRep/dereplicated_genomes"
     output: directory(f"{OUT}/dRep/clean_bins")
-    params: env = config["envs"]["seqkit"]
     benchmark: f"{OUT}/benchmarks/seqkit/rename.txt"
     shell:
         """
-        set +u
-        source {params.env}
-        set -u
-        set -e
+        set -euo pipefail
         
         mkdir -p {output}
 
@@ -347,7 +343,8 @@ rule phylophlan:
     input: genomes = f"{OUT}/dRep/dereplicated_genomes"
     output: directory(f"{OUT}/Phylogeny/phylophlan_output")
     params:
-        config_file = "supermatrix_aa.cfg",
+        config_file = config["phylophlan"]["config"],
+        db = config["phylophlan"]["db"],
         env = config["envs"]["metawrap"]
     threads: config["threads"]["phylophlan"]
     benchmark: f"{OUT}/benchmarks/phylogeny/phylophlan.txt"
@@ -360,6 +357,6 @@ rule phylophlan:
         
         mkdir -p {output}
 
-        phylophlan -i {input.genomes} -d phylophlan -f {params.config_file} \
+        phylophlan -i {input.genomes} -d {params.db} -f {params.config_file} \
             --diversity high --fast -o {output} --nproc {threads} --genome_extension .fa --verbose 2>&1
         """
