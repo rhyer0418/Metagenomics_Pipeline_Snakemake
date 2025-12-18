@@ -13,7 +13,8 @@ envs:
   gtdbtk: "$workdir/miniconda3/bin/activate gtdbtk_r207"
   humann3: "$workdir/miniconda3/bin/activate humann3"
   phylophlan: "$workdir/miniconda3/bin/activate phylophlan"
-
+  microbeannotator: "$workdir/miniconda3/bin/activate microbeannotator"
+  
 databases:
   gtdbtk: "$workdir/db/gtdb_r207v2/gtdb_r207/release207_v2"
   microbeannotator: "$workdir/db/MicrobeAnnotator_DB"
