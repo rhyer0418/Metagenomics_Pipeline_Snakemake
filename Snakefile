@@ -260,7 +260,7 @@ rule annotate_bins:
     input: bins = f"{OUT}/dRep/clean_bins"
     output:
         directory(f"{OUT}/function/bin_translated_genes"),
-        directory(f"{OUT}/function/bin_annotations")
+        directory(f"{OUT}/function/bin_untranslated_genes")
     params: 
         outdir = f"{OUT}/function", 
         env = config["envs"]["metawrap"]
@@ -345,7 +345,7 @@ rule phylophlan:
     params:
         config_file = config["phylophlan"]["config"],
         db = config["phylophlan"]["db"],
-        env = config["envs"]["metawrap"]
+        env = config["envs"]["phylophlan"]
     threads: config["threads"]["phylophlan"]
     benchmark: f"{OUT}/benchmarks/phylogeny/phylophlan.txt"
     shell:
