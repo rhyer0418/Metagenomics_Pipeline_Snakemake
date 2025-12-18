@@ -286,7 +286,7 @@ rule microbeannotator:
     params:
         outdir = f"{OUT}/microbeannotator_results",
         db = config["databases"]["microbeannotator"],
-        env = config["envs"]["metawrap"]
+        env = config["envs"]["microbeannotator"]
     threads: config["threads"]["microbeannotator"]
     benchmark: f"{OUT}/benchmarks/function/microbeannotator.txt"
     shell:
