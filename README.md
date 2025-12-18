@@ -57,6 +57,8 @@ nohup snakemake --cores 40 --resources mem_mb=110000 --latency-wait 60 --keep-go
 
 --keep-going: If one sample fails, continue processing the others.
 
+--omit-from: skip specific rule.
+
 ## 3.Output Files
 ```
 results/
