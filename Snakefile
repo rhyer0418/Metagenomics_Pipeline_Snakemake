@@ -360,3 +360,35 @@ rule phylophlan:
         phylophlan -i {input.genomes} -d {params.db} -f {params.config_file} \
             --diversity high --fast -o {output} --nproc {threads} --genome_extension .fa --verbose 2>&1
         """
+
+rule phylophlan:
+    input: 
+        genomes = f"{OUT}/dRep/dereplicated_genomes"
+    output:
+        tree = f"{OUT}/Phylogeny/phylophlan_output/RAxML_bestTree.dereplicated_genomes_refined.tre"
+    params:
+        config_file = config["phylophlan"]["config"],
+        db = config["phylophlan"]["db"],
+        env = config["envs"]["phylophlan"],
+        out_dir = f"{OUT}/Phylogeny/phylophlan_output"
+    threads: config["threads"]["phylophlan"]
+    shell:
+        """
+        set +u
+        source {params.env}
+        set -u
+        set -e
+
+        mkdir -p {params.out_dir}
+
+        phylophlan \
+            -i $(readlink -f {input.genomes}) \
+            -d {params.db} \
+            -f $(readlink -f {params.config_file}) \
+            --diversity high \
+            --fast \
+            -o {params.out_dir} \
+            --nproc {threads} \
+            --genome_extension .fa \
+            --verbose
+        """
