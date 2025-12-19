@@ -25,7 +25,7 @@ rule all:
         # HUMAnN3 results
         expand(f"{OUT}/humann/{{sample}}_merged_genefamilies.tsv", sample=SAMPLES),
         # Phylophlan results
-        f"{OUT}/Phylogeny/phylophlan_output"
+        f"{OUT}/Phylogeny/phylophlan_output/RAxML_bestTree.dereplicated_genomes_refined.tre"
 
 # === 3. Quality Control (MetaWRAP) ===
 rule metawrap_qc:
