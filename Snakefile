@@ -21,7 +21,7 @@ rule all:
         # GTDB-Tk results
         f"{OUT}/gtdb/gtdbtk.bac120.summary.tsv",
         # Annotation results
-        f"{OUT}/microbeannotator_results/annotation_results.txt",
+        f"{OUT}/microbeannotator_results/metabolic_summary__module_completeness.tab",
         # HUMAnN3 results
         expand(f"{OUT}/humann/{{sample}}_merged_genefamilies.tsv", sample=SAMPLES),
         # Phylophlan results
