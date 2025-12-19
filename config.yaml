@@ -22,7 +22,7 @@ databases:
   metaphlan_index: "mpa_vJun23_CHOCOPhlAnSGB_202403"
 
 phylophlan:
-  config: "$workdir/supermatrix_aa.cfg"
+  config: "$workdir/Phylogeny/supermatrix_aa.cfg"
   db: "$workdir/Phylogeny/phylophlan_databases"
 
 threads:
