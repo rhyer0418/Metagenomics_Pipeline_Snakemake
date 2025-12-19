@@ -23,7 +23,7 @@ databases:
 
 phylophlan:
   config: "$workdir/supermatrix_aa.cfg"
-  db: "$workdir/Phylogeny/"
+  db: "$workdir/Phylogeny/phylophlan_databases"
 
 threads:
   qc: 8
