@@ -115,10 +115,12 @@ results/
 | **Directory**        | **Content**                                                  |
 | -------------------- | ------------------------------------------------------------ |
 | `Assembly/{sample}/` | Final contigs (`final_assembly.fasta`)                       |
-| `Bins/{sample}/`     | Refined bins (`metawrap_50_5_bins/`)                            |
-| `gtdb/`              | Taxonomy classification (`gtdbtk.bac120.summary.tsv`)          |
+| `Bins/{sample}/`     | Refined bins (`metawrap_50_5_bins/`)                         |
+| `gtdb/`              | Taxonomy classification (`gtdbtk.bac120.summary.tsv`)        |
 
 ## Download Databases:
+phylophlan_databases: 478M 
+
 ```bash
 conda activate phylophlan
 ```
