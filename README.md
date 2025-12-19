@@ -118,6 +118,18 @@ results/
 | `Bins/{sample}/`     | Refined bins (`metawrap_50_5_bins/`)                            |
 | `gtdb/`              | Taxonomy classification (`gtdbtk.bac120.summary.tsv`)          |
 
+## Download Databases:
+```bash
+conda activate phylophlan
+```
+```bash
+phylophlan_setup_database \
+  -g phylophlan \
+  -d phylophlan \
+  -o /$workdir/db/phylophlan \
+  --database_update \
+  --verbose
+```
 
 ## Noted:
 Metawrap ( Python 2.7.15)
