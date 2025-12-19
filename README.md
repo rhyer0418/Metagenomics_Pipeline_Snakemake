@@ -126,7 +126,6 @@ conda activate phylophlan
 ```
 ```bash
 phylophlan_setup_database \
-  -g phylophlan \
   -d phylophlan \
   -o /$workdir/db/phylophlan \
   --database_update \
