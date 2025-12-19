@@ -282,7 +282,7 @@ rule annotate_bins:
 # === 11. MicrobeAnnotator ===
 rule microbeannotator:
     input: proteins = f"{OUT}/function/bin_translated_genes"
-    output: f"{OUT}/microbeannotator_results/annotation_results.txt"
+    output: f"{OUT}/microbeannotator_results/metabolic_summary__module_completeness.tab"
     params:
         outdir = f"{OUT}/microbeannotator_results",
         db = config["databases"]["microbeannotator"],
