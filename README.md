@@ -64,34 +64,24 @@ nohup snakemake --cores 40 --resources mem_mb=110000 --latency-wait 60 --keep-go
 results/
 ├── QC/
 │   ├── sample1/
-│   │   ├── clean_1.fastq
-│   │   └── clean_2.fastq
+│   │   ├── sample1_clean_1.fastq
+│   │   └── sample1_clean_2.fastq
 │   ├── sample2/
-│   │   ├── clean_1.fastq
-│   │   └── clean_2.fastq
+│   │   ├── sample2_clean_1.fastq
+│   │   └── sample2_clean_2.fastq
 │   └── ...
 ├── Assembly/
 │   ├── sample1/
 │   │   └── final_assembly.fasta
-│   ├── sample2/
-│   │   └── final_assembly.fasta
-│   └── ...
 ├── Bins/
 │   ├── sample1/
 │   │   ├── metabat2_bins/
 │   │   ├── maxbin2_bins/
 │   │   └── concoct_bins/
-│   ├── sample2/
-│   │   ├── metabat2_bins/
-│   │   ├── maxbin2_bins/
-│   │   └── concoct_bins/
-│   └── ...
 ├── bin_refinement/
 │   ├── sample1/
 │   │   └── metawrap_50_5_bins/
-│   ├── sample2/
-│   │   └── metawrap_50_5_bins/
-│   └── ...
+│   │       └── bin.*.fa
 ├── dRep/
 │   ├── data_tables/
 │   │   └── Wdb.csv
@@ -104,25 +94,29 @@ results/
 ├── function/
 │   ├── bin_translated_genes/
 │   │   └── *.faa
-│   └── bin_annotations/
-│       └── *.txt 
+│   └── bin_funct_annotations/
+│       └── *.gff
 ├── microbeannotator_results/
-│   └── annotation_results.txt
+│   └── metabolic_summary__module_completeness.tab
+│   └── metabolic_summary__heatmap.pdf
+│   └── metabolic_summary__barplot.pdf
 ├── humann/
-│   ├── sample1_genefamilies.tsv
-│   ├── sample2_genefamilies.tsv
+│   ├── sample1_merged_genefamilies.tsv; sample1_merged_pathabundance.tsv; sample1_merged_pathcoverage.tsv
+│   ├── sample2_merged_genefamilies.tsv; sample2_merged_pathabundance.tsv; sample2_merged_pathcoverage.tsv
 │   └── ...
 └── Phylogeny/
-    └── phylophlan_output/
-        └── phylogenetic_tree_files
+│   └── phylophlan_output/
+│       └── RAxML_bestTree.dereplicated_genomes_refined.tre
+└── benchmarks/
+│   └── $dir_output/
+│       └── $dir.txt
 ```
         
 | **Directory**        | **Content**                                                  |
 | -------------------- | ------------------------------------------------------------ |
 | `Assembly/{sample}/` | Final contigs (`final_assembly.fasta`)                       |
-| `Bins/{sample}/`  | Refined bins (`metawrap_bins/`)                              |
-| `checkm/`            | Quality assessment results (`bin_stats_ext.tsv`)             |
-| `gtdb/`            | Taxonomy classification (`gtdbtk.bac120.summary.tsv`)        |
+| `Bins/{sample}/`     | Refined bins (`metawrap_50_5_bins/`)                            |
+| `gtdb/`              | Taxonomy classification (`gtdbtk.bac120.summary.tsv`)          |
 
 
 ## Noted:
