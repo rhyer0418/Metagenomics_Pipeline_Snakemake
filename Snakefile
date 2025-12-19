@@ -340,28 +340,6 @@ rule humann3:
 
 # === 13. Phylophlan Phylogeny ===
 rule phylophlan:
-    input: genomes = f"{OUT}/dRep/dereplicated_genomes"
-    output: directory(f"{OUT}/Phylogeny/phylophlan_output")
-    params:
-        config_file = config["phylophlan"]["config"],
-        db = config["phylophlan"]["db"],
-        env = config["envs"]["phylophlan"]
-    threads: config["threads"]["phylophlan"]
-    benchmark: f"{OUT}/benchmarks/phylogeny/phylophlan.txt"
-    shell:
-        """
-        set +u
-        source {params.env}
-        set -u
-        set -e
-        
-        mkdir -p {output}
-
-        phylophlan -i {input.genomes} -d {params.db} -f {params.config_file} \
-            --diversity high --fast -o {output} --nproc {threads} --genome_extension .fa --verbose 2>&1
-        """
-
-rule phylophlan:
     input: 
         genomes = f"{OUT}/dRep/dereplicated_genomes"
     output:
@@ -383,8 +361,10 @@ rule phylophlan:
 
         phylophlan \
             -i $(readlink -f {input.genomes}) \
-            -d {params.db} \
+            -d phylophlan\
             -f $(readlink -f {params.config_file}) \
+            --databases_folder {params.db} \
+            -t a \
             --diversity high \
             --fast \
             -o {params.out_dir} \
