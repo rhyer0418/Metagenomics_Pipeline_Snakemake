@@ -121,15 +121,22 @@ results/
 ## Download Databases:
 phylophlan_databases: 478M 
 
+Auto download at first run
+
 ```bash
 conda activate phylophlan
 ```
 ```bash
-phylophlan_setup_database \
-  -d phylophlan \
-  -o /$workdir/db/phylophlan \
-  --database_update \
-  --verbose
+phylophlan \
+    -i /data \
+    -d phylophlan \
+    -f /$workdir/supermatrix_aa.cfg \
+    --diversity high \
+    --fast \
+    -o /$outputdir \
+    --nproc  20 \
+    --genome_extension .fa \
+    --verbose 2>&1 | tee logs_phylophlan.txt
 ```
 
 ## Noted:
